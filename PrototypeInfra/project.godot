@@ -1,0 +1,58 @@
+; Engine configuration file.
+; It's best edited using the editor UI and not directly,
+; since the parameters that go here are not all obvious.
+;
+; Format:
+;   [section] ; section goes between []
+;   param=value ; assign values to parameters
+
+config_version=4
+
+_global_script_classes=[ {
+"base": "Port",
+"class": "InputPort",
+"language": "GDScript",
+"path": "res://ClassInputPort.gd"
+}, {
+"base": "Port",
+"class": "OutputPort",
+"language": "GDScript",
+"path": "res://ClassOutputPort.gd"
+}, {
+"base": "Node",
+"class": "Port",
+"language": "GDScript",
+"path": "res://ClassPort.gd"
+}, {
+"base": "Node",
+"class": "Wire",
+"language": "GDScript",
+"path": "res://ClassWire.gd"
+} ]
+_global_script_class_icons={
+"InputPort": "res://Resources/InputIcon.png",
+"OutputPort": "res://Resources/OutputIcon.png",
+"Port": "",
+"Wire": ""
+}
+
+[application]
+
+config/name="Prototype Infra"
+run/main_scene="res://CabinetFront.tscn"
+config/icon="res://icon.png"
+
+[display]
+
+window/size/width=623
+window/size/height=720
+
+[physics]
+
+common/enable_pause_aware_picking=true
+
+[rendering]
+
+quality/driver/driver_name="GLES2"
+vram_compression/import_etc=true
+vram_compression/import_etc2=false

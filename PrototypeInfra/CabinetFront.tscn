@@ -1,0 +1,41 @@
+[gd_scene load_steps=8 format=2]
+
+[ext_resource path="res://CabinetFront.gd" type="Script" id=1]
+[ext_resource path="res://Resources/bugjam background.png" type="Texture" id=2]
+[ext_resource path="res://Resources/JoystickUpright.png" type="Texture" id=5]
+[ext_resource path="res://Resources/JoystickLeft.png" type="Texture" id=6]
+[ext_resource path="res://Resources/JoystickRight.png" type="Texture" id=7]
+[ext_resource path="res://Resources/s_Centipede_3.png" type="Texture" id=8]
+
+[sub_resource type="SpriteFrames" id=1]
+animations = [ {
+"frames": [ ExtResource( 5 ), ExtResource( 7 ), ExtResource( 5 ), ExtResource( 6 ) ],
+"loop": true,
+"name": "default",
+"speed": 1.0
+} ]
+
+[node name="ArcadeGame" type="Node2D"]
+script = ExtResource( 1 )
+
+[node name="Camera2D" type="Camera2D" parent="."]
+anchor_mode = 0
+
+[node name="CabinetFront" type="Node2D" parent="."]
+
+[node name="CabinetBackground" type="Sprite" parent="CabinetFront"]
+scale = Vector2( 0.5, 0.5 )
+texture = ExtResource( 2 )
+centered = false
+
+[node name="PlaceholderScreen" type="Sprite" parent="CabinetFront"]
+position = Vector2( 63.968, 217.41 )
+scale = Vector2( 0.775315, 0.794849 )
+texture = ExtResource( 8 )
+centered = false
+
+[node name="Joystick" type="AnimatedSprite" parent="CabinetFront"]
+position = Vector2( 118.66, 628.262 )
+scale = Vector2( 0.5, 0.5 )
+frames = SubResource( 1 )
+playing = true
