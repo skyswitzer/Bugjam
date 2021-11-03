@@ -1,0 +1,90 @@
+[gd_scene load_steps=15 format=2]
+
+[ext_resource path="res://Resources/Button_Red_Down (2).png" type="Texture" id=1]
+[ext_resource path="res://Resources/s_Centipede_3.png" type="Texture" id=2]
+[ext_resource path="res://Resources/Button_Red_Up.png" type="Texture" id=3]
+[ext_resource path="res://Resources/JoystickLeft.png" type="Texture" id=4]
+[ext_resource path="res://Resources/JoystickRight.png" type="Texture" id=5]
+[ext_resource path="res://Resources/bugjam background.png" type="Texture" id=6]
+[ext_resource path="res://Resources/JoystickUpright.png" type="Texture" id=7]
+[ext_resource path="res://CabinetFront.gd" type="Script" id=8]
+[ext_resource path="res://ClassInputPort.gd" type="Script" id=9]
+[ext_resource path="res://ClassOutputPort.gd" type="Script" id=10]
+[ext_resource path="res://ClassWire.gd" type="Script" id=11]
+[ext_resource path="res://ClassPort.gd" type="Script" id=12]
+
+[sub_resource type="SpriteFrames" id=1]
+animations = [ {
+"frames": [ ExtResource( 7 ), ExtResource( 5 ), ExtResource( 7 ), ExtResource( 4 ) ],
+"loop": true,
+"name": "default",
+"speed": 1.0
+} ]
+
+[sub_resource type="SpriteFrames" id=2]
+animations = [ {
+"frames": [ ExtResource( 3 ), ExtResource( 1 ) ],
+"loop": true,
+"name": "default",
+"speed": 1.0
+} ]
+
+[node name="ArcadeGame" type="Node2D"]
+script = ExtResource( 8 )
+
+[node name="The Gamer Scene" type="Node2D" parent="."]
+
+[node name="Cabinet Background" type="Sprite" parent="The Gamer Scene"]
+scale = Vector2( 0.5, 0.5 )
+texture = ExtResource( 6 )
+centered = false
+
+[node name="Subgame Screen" type="Node2D" parent="The Gamer Scene"]
+
+[node name="Not Centipede" type="Sprite" parent="The Gamer Scene/Subgame Screen"]
+position = Vector2( 63.968, 217.41 )
+scale = Vector2( 0.775315, 0.794849 )
+texture = ExtResource( 2 )
+centered = false
+
+[node name="Controllers" type="Node2D" parent="The Gamer Scene"]
+
+[node name="Joystick" type="Node2D" parent="The Gamer Scene/Controllers"]
+
+[node name="Joystick" type="AnimatedSprite" parent="The Gamer Scene/Controllers/Joystick"]
+position = Vector2( 118.66, 628.262 )
+scale = Vector2( 0.5, 0.5 )
+frames = SubResource( 1 )
+frame = 1
+playing = true
+
+[node name="Red Button" type="Node2D" parent="The Gamer Scene/Controllers"]
+
+[node name="Red Button" type="AnimatedSprite" parent="The Gamer Scene/Controllers/Red Button"]
+position = Vector2( 421.358, 637.786 )
+scale = Vector2( 0.1, 0.1 )
+frames = SubResource( 2 )
+frame = 1
+playing = true
+centered = false
+
+[node name="The Fixer Scene" type="Node2D" parent="."]
+visible = false
+
+[node name="Cabinet Background" type="AnimatedSprite" parent="The Fixer Scene"]
+
+[node name="Wires" type="Node2D" parent="The Fixer Scene"]
+script = ExtResource( 11 )
+
+[node name="The Circuit Board" type="Node2D" parent="The Fixer Scene"]
+
+[node name="Ports" type="Node2D" parent="The Fixer Scene/The Circuit Board"]
+script = ExtResource( 12 )
+
+[node name="Input-only Ports" type="Node2D" parent="The Fixer Scene/The Circuit Board/Ports"]
+script = ExtResource( 9 )
+
+[node name="Output-only Ports" type="Node2D" parent="The Fixer Scene/The Circuit Board/Ports"]
+script = ExtResource( 10 )
+
+[node name="IO Ports" type="Node2D" parent="The Fixer Scene/The Circuit Board/Ports"]

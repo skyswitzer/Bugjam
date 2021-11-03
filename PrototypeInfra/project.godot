@@ -32,7 +32,7 @@ _global_script_classes=[ {
 _global_script_class_icons={
 "InputPort": "res://Resources/InputIcon.png",
 "OutputPort": "res://Resources/OutputIcon.png",
-"Port": "",
+"Port": "res://Resources/EmptyPortIcon.png",
 "Wire": ""
 }
 
