@@ -1,4 +1,4 @@
-[gd_scene load_steps=15 format=2]
+[gd_scene load_steps=16 format=2]
 
 [ext_resource path="res://Resources/Button_Red_Down (2).png" type="Texture" id=1]
 [ext_resource path="res://Resources/s_Centipede_3.png" type="Texture" id=2]
@@ -12,6 +12,7 @@
 [ext_resource path="res://ClassOutputPort.gd" type="Script" id=10]
 [ext_resource path="res://ClassWire.gd" type="Script" id=11]
 [ext_resource path="res://ClassPort.gd" type="Script" id=12]
+[ext_resource path="res://Joystick.gd" type="Script" id=13]
 
 [sub_resource type="SpriteFrames" id=1]
 animations = [ {
@@ -50,13 +51,13 @@ centered = false
 [node name="Controllers" type="Node2D" parent="The Gamer Scene"]
 
 [node name="Joystick" type="Node2D" parent="The Gamer Scene/Controllers"]
+script = ExtResource( 13 )
 
-[node name="Joystick" type="AnimatedSprite" parent="The Gamer Scene/Controllers/Joystick"]
+[node name="JoystickSprite" type="AnimatedSprite" parent="The Gamer Scene/Controllers/Joystick"]
 position = Vector2( 118.66, 628.262 )
 scale = Vector2( 0.5, 0.5 )
 frames = SubResource( 1 )
-frame = 1
-playing = true
+frame = 3
 
 [node name="Red Button" type="Node2D" parent="The Gamer Scene/Controllers"]
 
@@ -69,7 +70,6 @@ playing = true
 centered = false
 
 [node name="The Fixer Scene" type="Node2D" parent="."]
-visible = false
 
 [node name="Cabinet Background" type="AnimatedSprite" parent="The Fixer Scene"]
 

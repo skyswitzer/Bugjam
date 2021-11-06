@@ -3,7 +3,6 @@ extends Node
 class_name Port, "res://Resources/EmptyPortIcon.png"
 
 # Declare member variables here. Examples:
-var name: String
 var isActive := false
 var hasWire := false
 
