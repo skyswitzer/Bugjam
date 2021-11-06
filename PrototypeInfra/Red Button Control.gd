@@ -1,10 +1,9 @@
-extends Port
+extends Button
 
-class_name InputPort, "res://Resources/InputIcon.png"
 
 # Declare member variables here. Examples:
-# var a = 2
 # var b = "text"
+
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -16,9 +15,10 @@ func _ready():
 #	pass
 
 
-func _on_Button_button_down():
-	pass # Replace with function body.
+func _on_Red_Button_Control_button_down():
+	print("Red Button Control Down")
 
 
-func _on_Button_button_up():
-	pass # Replace with function body.
+func _on_Red_Button_Control_button_up():
+	print("Red Button Control Up")
+

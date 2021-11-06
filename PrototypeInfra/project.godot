@@ -38,7 +38,7 @@ _global_script_class_icons={
 
 [application]
 
-config/name="Prototype Infra"
+config/name="Bugjam Prototype"
 run/main_scene="res://Codename Bugjam Prototype.tscn"
 config/icon="res://icon.png"
 
