@@ -15,9 +15,15 @@ func _ready():
 func _process(_delta):
 	if Input.is_action_pressed("ui_right"):
 		$JoystickSprite.frame=1
+	elif Input.is_key_pressed(KEY_D):
+		$JoystickSprite.frame=1
 	elif Input.is_action_pressed("ui_left"):
 		$JoystickSprite.frame=3
+	elif Input.is_key_pressed(KEY_A):
+		$JoystickSprite.frame=3
 	elif Input.is_action_pressed("ui_down"):
+		$JoystickSprite.frame=0 # TODO down frame
+	elif Input.is_key_pressed(KEY_S):
 		$JoystickSprite.frame=0 # TODO down frame
 	elif Input.is_action_pressed("ui_up"):
 		$JoystickSprite.frame=0 # TODO up frame

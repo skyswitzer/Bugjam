@@ -9,6 +9,11 @@
 config_version=4
 
 _global_script_classes=[ {
+"base": "Node2D",
+"class": "ArcadeButton",
+"language": "GDScript",
+"path": "res://ArcadeButton.gd"
+}, {
 "base": "Port",
 "class": "InputPort",
 "language": "GDScript",
@@ -30,6 +35,7 @@ _global_script_classes=[ {
 "path": "res://ClassWire.gd"
 } ]
 _global_script_class_icons={
+"ArcadeButton": "res://Resources/ButtonIcon.png",
 "InputPort": "res://Resources/InputIcon.png",
 "OutputPort": "res://Resources/OutputIcon.png",
 "Port": "res://Resources/EmptyPortIcon.png",

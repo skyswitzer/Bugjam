@@ -20,7 +20,6 @@ func _on_Red_Button_Control_button_down():
 	print("Red Button Sprite Heard Down")
 	if get_frame() != downFrame:
 		set_frame(downFrame)
-		print()
 
 
 
