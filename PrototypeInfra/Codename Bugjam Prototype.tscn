@@ -149,6 +149,10 @@ frames = SubResource( 3 )
 
 [node name="Wires" type="Node2D" parent="The Fixer Scene"]
 script = ExtResource( 11 )
+input = Vector2( 60, 180 )
+output = Vector2( 580, 160 )
+
+[node name="Line2D" type="Line2D" parent="The Fixer Scene/Wires"]
 
 [node name="The Circuit Board" type="Node2D" parent="The Fixer Scene"]
 
