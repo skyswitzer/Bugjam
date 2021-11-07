@@ -5,7 +5,6 @@ class_name Port, "res://Resources/EmptyPortIcon.png"
 # Declare member variables here. Examples:
 var isActive := false
 var hasWire := false
-export var portName := ""
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
