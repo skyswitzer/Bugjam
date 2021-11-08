@@ -12,30 +12,36 @@ _global_script_classes=[ {
 "base": "Node2D",
 "class": "ArcadeButton",
 "language": "GDScript",
-"path": "res://ArcadeButton.gd"
+"path": "res://Cabinet/ArcadeButton.gd"
+}, {
+"base": "Button",
+"class": "InputButton",
+"language": "GDScript",
+"path": "res://Cabinet/InputButton.gd"
 }, {
 "base": "Port",
 "class": "InputPort",
 "language": "GDScript",
-"path": "res://ClassInputPort.gd"
+"path": "res://Cabinet/ClassInputPort.gd"
 }, {
 "base": "Port",
 "class": "OutputPort",
 "language": "GDScript",
-"path": "res://ClassOutputPort.gd"
+"path": "res://Cabinet/ClassOutputPort.gd"
 }, {
-"base": "Node",
+"base": "Node2D",
 "class": "Port",
 "language": "GDScript",
-"path": "res://ClassPort.gd"
+"path": "res://Cabinet/ClassPort.gd"
 }, {
-"base": "Node",
+"base": "Node2D",
 "class": "Wire",
 "language": "GDScript",
-"path": "res://ClassWire.gd"
+"path": "res://Cabinet/ClassWire.gd"
 } ]
 _global_script_class_icons={
 "ArcadeButton": "res://Resources/ButtonIcon.png",
+"InputButton": "res://Resources/ButtonIcon.png",
 "InputPort": "res://Resources/InputIcon.png",
 "OutputPort": "res://Resources/OutputIcon.png",
 "Port": "res://Resources/EmptyPortIcon.png",
@@ -45,7 +51,7 @@ _global_script_class_icons={
 [application]
 
 config/name="Bugjam Prototype"
-run/main_scene="res://Codename Bugjam Prototype.tscn"
+run/main_scene="res://Cabinet/CabinetScene.tscn"
 config/icon="res://icon.png"
 
 [display]

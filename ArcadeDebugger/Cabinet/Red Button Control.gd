@@ -1,10 +1,9 @@
-extends Node
+extends Button
 
-class_name Port, "res://Resources/EmptyPortIcon.png"
 
 # Declare member variables here. Examples:
-var isActive := false
-var hasWire := false
+# var b = "text"
+
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -14,3 +13,12 @@ func _ready():
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 #func _process(delta):
 #	pass
+
+
+func _on_Red_Button_Control_button_down():
+	pass
+
+
+func _on_Red_Button_Control_button_up():
+	pass
+

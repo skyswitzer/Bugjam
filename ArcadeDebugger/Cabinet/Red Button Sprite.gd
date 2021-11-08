@@ -17,13 +17,11 @@ func _ready():
 
 
 func _on_Red_Button_Control_button_down():
-	print("Red Button Sprite Heard Down")
 	if get_frame() != downFrame:
 		set_frame(downFrame)
 
 
 
 func _on_Red_Button_Control_button_up():
-	print("Red Button Sprite Heard Up")
 	if get_frame() != upFrame:
 		set_frame(upFrame)

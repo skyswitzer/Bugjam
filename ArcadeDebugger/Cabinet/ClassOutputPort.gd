@@ -16,8 +16,9 @@ func _ready():
 		setInput(get_node(initialInputNodePath))
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
-#func _process(delta):
-#	pass
+func _process(delta):
+	if $DebugLabel != null:
+		$DebugLabel.text = str(getValue())
 
 func getValue():
 	if(haveInput):
