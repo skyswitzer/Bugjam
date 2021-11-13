@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/bugjam background.png-02b05bf77c00ccd873eeddc385190662.stex"
+path="res://.import/plug.png-c3bce062c61718854002faed7569bee3.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Resources/bugjam background.png"
-dest_files=[ "res://.import/bugjam background.png-02b05bf77c00ccd873eeddc385190662.stex" ]
+source_file="res://Resources/plug.png"
+dest_files=[ "res://.import/plug.png-c3bce062c61718854002faed7569bee3.stex" ]
 
 [params]
 

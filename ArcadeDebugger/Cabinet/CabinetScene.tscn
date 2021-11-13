@@ -1,4 +1,4 @@
-[gd_scene load_steps=34 format=2]
+[gd_scene load_steps=36 format=2]
 
 [ext_resource path="res://Resources/JoystickRight.png" type="Texture" id=1]
 [ext_resource path="res://Resources/bugjam background.png" type="Texture" id=2]
@@ -19,11 +19,12 @@
 [ext_resource path="res://Resources/cab background proto.png" type="Texture" id=17]
 [ext_resource path="res://Resources/Button_Red_Spritesheet.png" type="Texture" id=18]
 [ext_resource path="res://Resources/Button_Green_Spritesheet.png" type="Texture" id=19]
-[ext_resource path="res://Cabinet/ClassWire.gd" type="Script" id=20]
 [ext_resource path="res://Resources/Button_White_Spritesheet.png" type="Texture" id=21]
 [ext_resource path="res://Cabinet/WhiteButtonInput.gd" type="Script" id=22]
 [ext_resource path="res://Cabinet/InputButton.gd" type="Script" id=23]
 [ext_resource path="res://Cabinet/WhiteWire.gd" type="Script" id=24]
+[ext_resource path="res://Cabinet/InputPlug.gd" type="Script" id=25]
+[ext_resource path="res://Resources/plug.png" type="Texture" id=26]
 
 [sub_resource type="SpriteFrames" id=1]
 animations = [ {
@@ -70,6 +71,9 @@ animations = [ {
 "name": "default",
 "speed": 5.0
 } ]
+
+[sub_resource type="CircleShape2D" id=11]
+radius = 40.0
 
 [node name="ArcadeGame" type="Node2D"]
 script = ExtResource( 7 )
@@ -203,9 +207,6 @@ frames = SubResource( 3 )
 centered = false
 
 [node name="Wires" type="Node2D" parent="The Fixer Scene"]
-script = ExtResource( 20 )
-input = Vector2( 60, 180 )
-output = Vector2( 580, 160 )
 
 [node name="Line2D" type="Line2D" parent="The Fixer Scene/Wires"]
 
@@ -215,7 +216,22 @@ input = Vector2( 74, 285 )
 output = Vector2( 300, 300 )
 
 [node name="Line2D" type="Line2D" parent="The Fixer Scene/Wires/WhiteWire"]
+width = 20.0
 default_color = Color( 0.952941, 0.956863, 0.976471, 1 )
+texture_mode = 2
+
+[node name="InputPlug" type="Node2D" parent="The Fixer Scene/Wires/WhiteWire"]
+position = Vector2( 100, 0 )
+script = ExtResource( 25 )
+
+[node name="Sprite" type="Sprite" parent="The Fixer Scene/Wires/WhiteWire/InputPlug"]
+position = Vector2( 12, 0 )
+texture = ExtResource( 26 )
+
+[node name="Area2D" type="Area2D" parent="The Fixer Scene/Wires/WhiteWire/InputPlug"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="The Fixer Scene/Wires/WhiteWire/InputPlug/Area2D"]
+shape = SubResource( 11 )
 
 [node name="The Circuit Board" type="Node2D" parent="The Fixer Scene"]
 
@@ -239,19 +255,29 @@ position = Vector2( 593, 166 )
 scale = Vector2( 0.640625, 0.609375 )
 flip_h = true
 
+[node name="DebugLabel" type="Label" parent="The Fixer Scene/The Circuit Board/Ports/Output-only Ports"]
+margin_left = -10.8906
+margin_top = -4.875
+margin_right = 29.1094
+margin_bottom = 9.125
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
 [node name="IO Ports" type="Node2D" parent="The Fixer Scene/The Circuit Board/Ports"]
 
 [node name="Controller Inputs" type="Node2D" parent="The Fixer Scene/The Circuit Board"]
 
-[node name="Red Button Input" type="Node2D" parent="The Fixer Scene/The Circuit Board/Controller Inputs"]
+[node name="Red Button Input" type="Node2D" parent="The Fixer Scene/The Circuit Board/Controller Inputs" groups=["InputPort"]]
+position = Vector2( 66, 181 )
 script = ExtResource( 9 )
 
 [node name="PortSprite" type="Sprite" parent="The Fixer Scene/The Circuit Board/Controller Inputs/Red Button Input"]
-position = Vector2( 66.0001, 181 )
 scale = Vector2( 0.640625, 0.609375 )
 texture = ExtResource( 16 )
 
-[node name="WhiteInputPort" type="Node2D" parent="The Fixer Scene/The Circuit Board/Controller Inputs"]
+[node name="WhiteInputPort" type="Node2D" parent="The Fixer Scene/The Circuit Board/Controller Inputs" groups=["InputPort"]]
 position = Vector2( 67, 259 )
 script = ExtResource( 22 )
 
@@ -280,6 +306,16 @@ position = Vector2( 593, 166 )
 scale = Vector2( 0.640625, 0.609375 )
 texture = ExtResource( 16 )
 flip_h = true
+
+[node name="DebugLabel" type="Label" parent="The Fixer Scene/The Circuit Board/OutputToGame/OutputPortDebug"]
+margin_left = -10.8906
+margin_top = -4.875
+margin_right = 29.1094
+margin_bottom = 9.125
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
 
 [node name="WhiteOutputPort" type="Node2D" parent="The Fixer Scene/The Circuit Board/OutputToGame"]
 position = Vector2( 582, 367 )
@@ -320,3 +356,4 @@ __meta__ = {
 [connection signal="button_down" from="The Gamer Scene/Controllers/WhiteButton" to="The Fixer Scene/The Circuit Board/Controller Inputs/WhiteInputPort" method="_on_WhiteButton_button_down"]
 [connection signal="button_up" from="The Gamer Scene/Controllers/WhiteButton" to="The Gamer Scene/Controllers/WhiteButton" method="_on_WhiteButton_button_up"]
 [connection signal="button_up" from="The Gamer Scene/Controllers/WhiteButton" to="The Fixer Scene/The Circuit Board/Controller Inputs/WhiteInputPort" method="_on_WhiteButton_button_up"]
+[connection signal="input_event" from="The Fixer Scene/Wires/WhiteWire/InputPlug/Area2D" to="The Fixer Scene/Wires/WhiteWire/InputPlug" method="_on_Area2D_input_event"]

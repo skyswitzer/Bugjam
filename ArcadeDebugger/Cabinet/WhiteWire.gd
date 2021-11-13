@@ -14,7 +14,6 @@ func _ready():
 	input = inputPort.get_position()
 	outputPort = get_node("/root/ArcadeGame/The Fixer Scene/The Circuit Board/OutputToGame/WhiteOutputPort")
 	output = outputPort.get_position()
-	._ready()
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
