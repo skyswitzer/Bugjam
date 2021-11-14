@@ -1,8 +1,7 @@
-[gd_scene load_steps=36 format=2]
+[gd_scene load_steps=38 format=2]
 
 [ext_resource path="res://Resources/JoystickRight.png" type="Texture" id=1]
 [ext_resource path="res://Resources/bugjam background.png" type="Texture" id=2]
-[ext_resource path="res://Resources/s_Centipede_3.png" type="Texture" id=3]
 [ext_resource path="res://Resources/BlueButtonSpritesheet.png" type="Texture" id=4]
 [ext_resource path="res://Resources/JoystickLeft.png" type="Texture" id=5]
 [ext_resource path="res://Cabinet/ArcadeButton.gd" type="Script" id=6]
@@ -19,12 +18,18 @@
 [ext_resource path="res://Resources/cab background proto.png" type="Texture" id=17]
 [ext_resource path="res://Resources/Button_Red_Spritesheet.png" type="Texture" id=18]
 [ext_resource path="res://Resources/Button_Green_Spritesheet.png" type="Texture" id=19]
+[ext_resource path="res://Subgames/Not_Galaga/NotGalaga.tscn" type="PackedScene" id=20]
 [ext_resource path="res://Resources/Button_White_Spritesheet.png" type="Texture" id=21]
 [ext_resource path="res://Cabinet/WhiteButtonInput.gd" type="Script" id=22]
 [ext_resource path="res://Cabinet/InputButton.gd" type="Script" id=23]
 [ext_resource path="res://Cabinet/WhiteWire.gd" type="Script" id=24]
 [ext_resource path="res://Cabinet/InputPlug.gd" type="Script" id=25]
 [ext_resource path="res://Resources/plug.png" type="Texture" id=26]
+
+[sub_resource type="Environment" id=12]
+
+[sub_resource type="World" id=13]
+environment = SubResource( 12 )
 
 [sub_resource type="SpriteFrames" id=1]
 animations = [ {
@@ -83,16 +88,33 @@ position = Vector2( 656, 0 )
 
 [node name="Cabinet Background" type="Sprite" parent="The Gamer Scene"]
 scale = Vector2( 0.5, 0.5 )
+z_index = -100
 texture = ExtResource( 2 )
 centered = false
 
 [node name="Subgame Screen" type="Node2D" parent="The Gamer Scene"]
+position = Vector2( 340, 380 )
 
-[node name="Not Centipede" type="Sprite" parent="The Gamer Scene/Subgame Screen"]
-position = Vector2( 63.968, 217.41 )
-scale = Vector2( 0.775315, 0.794849 )
-texture = ExtResource( 3 )
-centered = false
+[node name="ViewportContainer" type="ViewportContainer" parent="The Gamer Scene/Subgame Screen"]
+margin_left = -268.0
+margin_top = -158.0
+margin_right = 212.0
+margin_bottom = 162.0
+rect_pivot_offset = Vector2( 240, 160 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Viewport" type="Viewport" parent="The Gamer Scene/Subgame Screen/ViewportContainer"]
+size = Vector2( 480, 320 )
+own_world = true
+world = SubResource( 13 )
+handle_input_locally = false
+render_target_update_mode = 3
+gui_disable_input = true
+
+[node name="NotGalaga" parent="The Gamer Scene/Subgame Screen/ViewportContainer/Viewport" instance=ExtResource( 20 )]
+position = Vector2( 240, 160 )
 
 [node name="Controllers" type="Node2D" parent="The Gamer Scene"]
 
@@ -103,7 +125,6 @@ script = ExtResource( 11 )
 [node name="JoystickSprite" type="AnimatedSprite" parent="The Gamer Scene/Controllers/Joystick"]
 scale = Vector2( 0.5, 0.5 )
 frames = SubResource( 1 )
-frame = 2
 playing = true
 
 [node name="Red Button" type="Node2D" parent="The Gamer Scene/Controllers"]

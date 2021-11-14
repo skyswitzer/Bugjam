@@ -1,0 +1,13 @@
+[remap]
+
+importer="image"
+type="Image"
+path="res://.import/BaseBackground.png-bd0dfafde50de1d91f611a30aebc9935.image"
+
+[deps]
+
+source_file="res://Resources/Res_NotGalaga/BaseBackground.png"
+dest_files=[ "res://.import/BaseBackground.png-bd0dfafde50de1d91f611a30aebc9935.image" ]
+
+[params]
+
