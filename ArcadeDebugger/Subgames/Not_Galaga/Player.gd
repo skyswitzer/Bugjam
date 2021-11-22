@@ -7,14 +7,11 @@ extends RigidBody2D
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	$LaserParticles.one_shot = true
-	
-
+	pass
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(_delta):
 	_calcVelocity()
-	#_shootBullets()
 	
 	
 func _calcVelocity():
@@ -31,9 +28,4 @@ func _calcVelocity():
 	
 	set_linear_velocity(linearVelocity)
 
-func _shootBullets():
-	var shipVelocity = get_linear_velocity()
-	$LaserParticles.initial_velocity=(100-shipVelocity.y)
-	if Input.is_action_pressed("ui_accept"):
-		$LaserParticles.emitting = true
 	

@@ -24,6 +24,16 @@ _global_script_classes=[ {
 "language": "GDScript",
 "path": "res://Cabinet/ClassInputPort.gd"
 }, {
+"base": "RigidBody2D",
+"class": "LaserBase",
+"language": "GDScript",
+"path": "res://Subgames/Not_Galaga/LaserBase.gd"
+}, {
+"base": "RigidBody2D",
+"class": "MissileBase",
+"language": "GDScript",
+"path": "res://Subgames/Not_Galaga/MissileBase.gd"
+}, {
 "base": "Port",
 "class": "OutputPort",
 "language": "GDScript",
@@ -43,6 +53,8 @@ _global_script_class_icons={
 "ArcadeButton": "res://Resources/ButtonIcon.png",
 "InputButton": "res://Resources/ButtonIcon.png",
 "InputPort": "res://Resources/InputIcon.png",
+"LaserBase": "",
+"MissileBase": "",
 "OutputPort": "res://Resources/OutputIcon.png",
 "Port": "res://Resources/EmptyPortIcon.png",
 "Wire": ""
